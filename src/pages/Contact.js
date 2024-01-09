@@ -4,167 +4,135 @@ import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader';
 import Alerts from '../components/Alerts';
 import useAlert from '../hooks/useAlert';
-import { useSpring, animated } from 'react-spring';
-import { Model } from '../models/Orb';
 import Footer from '../components/Footer';
 
 const Contact = () => {
   const formRef = useRef(null);
-  const [form, setForm] = useState({name: '', email: '', message: ''})
   const [isLoading, setIsLoading] = useState(false);
-  const {alert, showAlert, hideAlert} = useAlert();
-
-  // Add the hover state for the animation
-  const [hover, setHover] = useState(false);
-
-  // Define the animation using useSpring
-  const animation = useSpring({
-    width: hover ? '100%' : '0%', // Animate width from 0% to 100%
-    backgroundColor: hover ? '#60efff' : '#0061ff', // Adjust colors as needed
-    position: 'absolute',
-    height: '100%',
-    zIndex: 0,
-    left: 0,
-    top: 0,
-    transition: 'width 0.1s',
-  });
+  const [form, setForm] = useState({name: '', email: '', message: ''})
+  const { alert, showAlert, hideAlert } = useAlert(); 
 
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value})
+    setForm({...form, [e.target.name] : e.target.value });
   };
 
+  const handleFocus = () => {};
+  const handleBlur = () => {};
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-
+    
+    console.log(process.env)
     emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      'service_7bf0yoi',
+      'template_b8t4hcz',
       {
-        form_name: form.name,
-        to_name: 'Devin',
+        from_name: form.name,
+        to_name: "Devin",
         from_email: form.email,
-        to_email: 'dev.rmason@gmail.com',
+        to_email: 'devin.masno@spartans.ut.edu',
         message: form.message
       },
-      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      'u-xSsHFlFJxmbnk37'
     ).then(() => {
       setIsLoading(false);
-      // TODO: show success message
-      showAlert({show: true, text: 'Message Sent Succesfully', type:'success'})
-      // TODO: Hide an alert
+      showAlert({
+        show: true,
+        text: "Thank you for your message",
+        type: "success",
+      });
 
       setTimeout(() => {
-        hideAlert();
-        setForm({name: '', email: '', message: ''});
-
-      }, [3000])
-
-    }).catch((error) => {
+        hideAlert(false);
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      }, [3000]);
+    },
+    (error) => {
       setIsLoading(false);
-      console.log(error);
-      // TODO: Show error message
-      showAlert({show:true, text: 'I did not recieve your message', type:'danger'})
-    })
-  };
+      console.error(error);
+
+      showAlert({
+        show: true,
+        text: "I didn't receive your message",
+        type: "danger",
+      });
+    }
+  );
+};
 
 
   return (
     <>
-    <section className='flex flex-col lg:flex-row items-center justify-center min-h-screen bg-white px-4 lg:px-0'>
-      {alert.show && <Alerts {...alert}/>}
-      
-      <div className='w-full max-w-md mx-auto bg-white py-5 px-5 md:px-2'>
-        <h1 className='text-3xl font-bold text-center mb-4'>Get In Touch</h1>
-      
-        <form
-          ref={formRef}
-          className='flex flex-col gap-7 mt-14'
+    <section className="flex flex-col items-center justify-center min-h-screen py-12 px-4">
+        { alert.show && <Alerts {...alert} />}
+        
+        <div className='w-full max-w-2xl px-6 py-8 bg-white shadow-md rounded-md'>
+          <h1 className='text-center sm:text-5xl text-3xl font-semibold sm:leading-snug bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-500'>
+            Get In Touch
+          </h1>
+
+          <form 
           onSubmit={handleSubmit}
-        >
-          <div className='flex flex-col'>
-            <label htmlFor='name' className='text-sm font-semibold'>Name</label>
-            <input
-              id='name'
-              type='text'
-              name='name'
-              className='mt-1 p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500'
-              placeholder='John'
-              required
-              value={form.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div className='flex flex-col'>
-            <label htmlFor='email' className='text-sm font-semibold'>Email</label>
-            <input
-              id='email'
-              type='email'
-              name='email'
-              className='mt-1 p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500'
-              placeholder='john@gmail.com'
-              required
-              value={form.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className='flex flex-col'>
-            <label htmlFor='message' className='text-sm font-semibold'>Your Message</label>
-            <textarea
-              id='message'
-              name='message'
-              rows={4}
-              className='mt-1 p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500'
-              placeholder='Let me know how I can help you'
-              required
-              value={form.message}
-              onChange={handleChange}
-            />
-          </div>
-
-          <button
-            type='submit'
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            className={`mt-4 w-full relative font-medium text-sm rounded-md overflow-hidden focus:outline-none ${
-              isLoading ? 'cursor-not-allowed bg-gray-500 text-black' : 'bg-transparent text-black'
-            }`}
-            style={{
-              padding: '0.75rem 1rem', // Adjust padding as needed
-            }}
-            disabled={isLoading}
-          >
-            <animated.div style={animation} />
-            <span style={{ position: 'relative', zIndex: 1 }}>
+          className='w-full flex flex-col gap-7 mt-14'>
+            <label className='text-black-500 font-semibold'>
+              Name
+              < input
+                type='text'
+                name='name'
+                className='bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card'
+                placeholder='What is your name?'
+                required
+                value={form.name}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            </label>
+            <label className='text-black-500 font-semibold'>
+              Email
+              < input
+                type='email'
+                name='email'
+                className='bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card'
+                placeholder='example@email.com'
+                required
+                value={form.email}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            </label>
+            <label className='text-black-500 font-semibold'>
+              Your Message
+              < input
+                name='message'
+                rows={4}
+                className='bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card'
+                placeholder='Let me know how I can help'
+                required
+                value={form.message}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            </label>
+            <button
+              type="submit"
+              className='text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+              disabled={isLoading}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
               {isLoading ? 'Sending...' : 'Send Message'}
-            </span>
-          </button>
-        </form>
-      </div>
-
-      <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>
-        <Canvas
-          camera={{
-            position: [0, 0, 5],
-            fov: 75,
-            near: 0.1,
-            far: 1000
-          }}
-        >
-          <directionalLight intensity={2.5} position={[0,0,1]} />
-          <Suspense fallback={<Loader />}>
-            <ambientLight intensity={-0.25} />
-              <Model />
-          </Suspense>
-        </Canvas>
-      </div>
-    </section>
-    <hr className='border-slate-800' />
-    <div className='bg-gray-900'>
-      <hr className='border-slate-200' />
-      <Footer />    
-    </div> 
-
+            </button>
+          </form>
+        </div>
+      </section>
+      <Footer />
     </>
   )
 }

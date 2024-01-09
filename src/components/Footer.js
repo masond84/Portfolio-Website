@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-900 text-white body-font'>
+    <footer className='bg-gray-900 text-white'>
         <hr className='border-t border-gray-700'/>
-        <div className='max-w-6xl mx-auto grid grid-cols-1 py-10 md:grid-cols-3 gap-8'>
+        <div className='max-w-6xl mx-auto grid grid-cols-1 py-10 sm:grid-cols-3 gap-8 text-center sm:text-left'>
             <div>
                 <h2 className='text-xl font-semibold mb-2'>About</h2>
                 <p>
-                    Hi, my name is Vito Medlej and I have created the OnBeirut Agency which aims to solve various issues small Lebanese businesses face. You are free to use the website as a template for yourself as long as you give credit.
+                Hello, my name is Devin Mason.
+                Welcome to the world where technology meets local business innovation.
+                Through creative problem-solving and a collaborative spirit, my goal is to empower and transform various business landscapes.
                 </p>
             </div>
             <div>

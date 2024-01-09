@@ -90,10 +90,14 @@ const About = () => {
                 <span className="block z-10 relative">VIEW PROJECTS</span>
                 <span className="absolute top-full left-0 w-full h-full bg-white group-hover:top-0 transition-all duration-300 ease-in-out"></span>
               </Link>
-              <Link to="/resume" className="relative inline-block font-semibold py-2 px-4 border border-blue-500 text-blue-700 rounded-md overflow-hidden group focus:outline-none ml-4">
+              <a 
+              href='/Devin_Mason_Resume_2023.pdf'
+              download={'/Devin_Mason_Resume_2023.pdf'}
+              className="relative inline-block font-semibold py-2 px-4 border border-blue-500 text-blue-700 rounded-md overflow-hidden group focus:outline-none ml-4"
+              >
                 <span className="block z-10 relative">VIEW RESUME</span>
                 <span className="absolute top-full left-0 w-full h-full bg-blue-500 opacity-0 group-hover:top-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"></span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

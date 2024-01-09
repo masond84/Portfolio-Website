@@ -39,8 +39,6 @@ const AnimatedButton = ({ link, text="View More" }) => {
         />
         <Link
             to={link}
-            target="_blank"
-            rel="noopener noreferrer"
             style={{
             position: 'relative',
             textDecoration: 'none',

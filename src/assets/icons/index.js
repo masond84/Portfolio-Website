@@ -31,6 +31,15 @@ import excel from './excel.svg'
 import python from './python.svg'
 import shopify from './shopify.svg'
 import DealCloud from './DealCloud.svg'
+import gradcap from './gradcap.svg'
+import chart from './chart.svg'
+import realestate from './realestate.svg'
+import mental from './mental.svg'
+import webdev from './webdev.svg'
+import terminal from './terminal.svg'
+import database from './database.svg'
+import magnet from './magnet.svg'
+import cloud from './cloud.svg'
 
 export {
     css,
@@ -65,5 +74,14 @@ export {
     excel,
     python,
     shopify,
-    DealCloud
+    DealCloud,
+    gradcap,
+    chart,
+    realestate,
+    mental,
+    webdev,
+    terminal,
+    database,
+    magnet,
+    cloud
 }

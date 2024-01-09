@@ -26,6 +26,11 @@ const Navbar = () => {
                 {/* Left side - Logo and navigation links for large screens */}
                 <div>
                 <Link to="/" className="flex items-center space-x-2">
+                    <img
+                      src='/Portfolio_Logo.png'
+                      alt='Dein Mason'
+                      className='h-8 md:h-12'                    
+                    />
                     <span 
                     className="font-serif text-ml md:text-2xl text-[#000000] font-bold"
                     >

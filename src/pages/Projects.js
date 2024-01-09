@@ -15,8 +15,10 @@ const Projects = () => {
         My <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-300 font-semibold drop-shadow-lg'>Projects</span>
       </h1>
       <div className='text-center mt-5 flex flex-col gap-3 text-slate-500'>
-        <p>
-          Talk about how I have embarked on numerous projects.
+        <p className='max-w-lg mx-auto text-center px-2'>
+          I've embarked on numerous projects showcasing my passion for technology and problem solving.
+          Each project representing a unique challenge and learning opportunity, showcasing my applied skills
+          in software development, data analysis, and business intelligence.
         </p>
       </div>
 
@@ -57,9 +59,9 @@ const Projects = () => {
       <hr className='border-slate-200' />
 
       <section className='w-full flex justify-between items-center md:flex-row flex-col py-16 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12'>
-        <div className='flex-1 max-w-[50%]'> {/* Adjust max-width as needed to control the width of the text */}
+        <div className='w-full md:flex-1 md:max-w-[50%]'> {/* Adjust max-width as needed to control the width of the text */}
           <p className='text-black font-extrabold text-3xl lg:text-left text-center'>
-            Have a project in mind? <br /> Let's Build Something Together
+            Have a project in mind? <br/> Let's Build Something Together
           </p>
         </div>
         <div className='flex justify-center lg:justify-start mt-8 md:mt-0'>

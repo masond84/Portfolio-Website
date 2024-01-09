@@ -27,7 +27,11 @@ import {
     django,
     excel,
     python,
-    DealCloud
+    DealCloud,
+    gradcap,
+    chart,
+    realestate,
+    mental
 } from "../assets/icons";
 
 // SKILLS
@@ -192,28 +196,28 @@ export const socialLinks = [
 // PROJECTS
 export const projects = [
     {
-        iconUrl: pricewise,
+        iconUrl: gradcap,
         theme: 'btn-back-red',
         name: 'Student Resource Center',
         description: 'Developed a web application provides open-source resources for Student Leaders and Administrators looking to become adept in a variety of skills. ',
         link: 'https://github.com/adrianhajdin/pricewise',
     },
     {
-        iconUrl: threads,
+        iconUrl: chart,
         theme: 'btn-back-green',
         name: 'Lead Scoring Application',
         description: 'Created a full-stack software to rank  Lead Lists in order to designate quality leads and corresponding scores for each lead.',
         link: 'https://github.com/adrianhajdin/threads',
     },
     {
-        iconUrl: car,
+        iconUrl: realestate,
         theme: 'btn-back-blue',
         name: 'Real-Estate Auction Web Scraper',
         description: 'Created an automated web scraper that recurringly gets foreclosure auctions and researches respective data for all Counties in Florida.',
         link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
     },
     {
-        iconUrl: snapgram,
+        iconUrl: mental,
         theme: 'btn-back-pink',
         name: 'Therapist ChatBot',
         description: 'Built a ChatGPT clone tailored to providing mental health advice and companionship to a user through text prompts and Natural Language Processing.',

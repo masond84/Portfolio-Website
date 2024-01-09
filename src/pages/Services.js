@@ -1,32 +1,38 @@
 import React from 'react'
 import Footer from '../components/Footer';
 import AnimatedButton from '../components/AnimatedButton';
+import { webdev, terminal, database, magnet, cloud } from '../assets/icons';
 
 const servicesOffered = [
   {
+    iconUrl: webdev,
     name: 'Web Development',
-    description: 'Custom websites and web applications using modern frameworks and technologies.',
-    theme: 'bg-pink-500',
-  },
-  {
-    name: 'Lead Generation',
-    description: 'description',
+    description: "Craft bespoke websites and web apps with a focus on performance and user-centric design, ensuring alignment with client's vision and goals.",
     theme: 'bg-blue-500',
   },
   {
-    name: 'Web & Data Scraping',
-    description: 'description',
-    theme: 'bg-slate-500',
+    iconUrl: magnet,
+    name: 'Lead Generation',
+    description: 'Deploy cutting-edge techniques to identify and score potential leads, enhancing business opportunities with precision.',
+    theme: 'bg-green-500',
   },
   {
-    name: 'Data Entry',
-    description: 'description',
-    theme: 'bg-slate-500',
+    iconUrl: cloud,
+    name: 'Web & Data Scraping',
+    description: 'Expertise in extracting and refining web data using advanced scraping technologies, turning information into actionable insights.',
+    theme: 'bg-yellow-500',
   },
   {
-    name: 'Web & Data Scraping',
-    description: 'description',
-    theme: 'bg-slate-500',
+    iconUrl: database,
+    name: 'Data Entry & Analysis',
+    description: 'Efficiently manage and analyze data, utilizing automation and optimization to support strategic decision-making.',
+    theme: 'bg-red-500',
+  },
+  {
+    iconUrl: terminal,
+    name: 'Algorithm Development',
+    description: 'Design and implement innovative algorithms to streamline and automate processes, ensuring accuracy and efficiency in data operations.',
+    theme: 'bg-purple-500',
   },
 ];
 
@@ -39,8 +45,8 @@ const Services = () => {
           My <span className='bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-300 font-semibold drop-shadow-lg'>Services</span>
         </h1>
         <div className='text-center mt-5 flex flex-col gap-3 text-slate-500'>
-          <p>
-            Discover the professional services I offer to help bring your projects to life.
+          <p className='max-w-lg mx-auto text-center px-2'>
+          Harness my expertise in web solutions and data strategies to empower your business growth and digital innovation.
           </p>
         </div>
 
@@ -67,9 +73,11 @@ const Services = () => {
                   <p className='mt-2 text-slate-500'>
                     {service.description}
                   </p>
+                  {/*
                   <div className='mt-5 flex items-center gap-2'>
                     <AnimatedButton link={service.link} text="Learn More" />
                   </div>
+                  */}
                 </div>
               </div>
             </div>

@@ -11,7 +11,6 @@ const World = ({ modelPosition, modelScale }) => {
     const modelRef = useRef();
     const{ scene, materials, animations } = useGLTF('/a_windy_day.glb');
     const [targetColor, setTargetColor] = useState(new THREE.Color(Math.random(), 0.5, 0.5));
-    const { actions } = useAnimations(animations, modelRef);    
     
     let lerpFactor = 0.01; // Adjust this value for faster or slower color transitions
     // A ref to store mouse positon
@@ -54,17 +53,6 @@ const World = ({ modelPosition, modelScale }) => {
         return () => clearInterval(interval);
     }, []);
 
-    // Play Animations
-    useEffect(() => {
-        // Play and loop the animation 'Object_0'
-        if (actions["Object_0"]) {
-            actions["Object_0"].reset().play();
-            actions["Object_0"].setLoop(THREE.LoopRepeat);
-            // Slow down the animation
-            actions["Object_0"].setEffectiveTimeScale(0.001);
-        }
-    }, [actions]);
-
     return <primitive 
             ref={modelRef} 
             object={scene} 
@@ -76,7 +64,9 @@ const World = ({ modelPosition, modelScale }) => {
 const Home = () => {
     const [modelPosition, setModelPosition] = React.useState([0,0,0]);
     const [modelScale, setModelScale] = useState(1.25); // Default scale is 1
-    
+    const [darkMode, setDarkMode] = useState(true);  // Default to dark mode
+    const toggleTheme = () => setDarkMode(!darkMode);
+
     // Function to handle window resize events for tablet screen sizes
     const handleResize = () => {
         const screenWidth = window.innerWidth;
@@ -118,10 +108,13 @@ const Home = () => {
 
     return (
         <>
-            <section className='w-full h-screen flex flex-col md:flex-row justify-center items-center p-4'>
+            <section className='w-full h-screen flex flex-col md:flex-row justify-center items-center p-4 bg-[#0a0a0a]'>
                 <div className="text-left w-full md:w-1/2 lg:w-2/5 px-4 md:px-0 space-y-4 pl-4 md:pl-8 lg:pl-12">
-                    <h1 className="text-4xl md:text-4xl font-bold text-gray-800">Expanding Software, Data, and Business Solutions</h1>
-                    <p className="text-sm md:text-base text-gray-600">Hey there! My name is Devin. I enjoy creating kickass websites and web/mobile apps, ones that suit your desires and needs using latest technologies and cleanest design patterns.</p>
+                    <h1 className="text-4xl md:text-4xl font-bold text-white text-center md:text-left">Expanding the Intersection of Technology and Business</h1>
+                    <p className="text-sm md:text-base text-gray-400 text-center md:text-left">
+                    As a full-stack developer and data analyst, I thrive in data-driven environments, employing cutting-edge technologies to craft not just websites and apps, but comprehensive digital solutions.
+                    I enjoy creating digital experiences that aren't just visually appealing, but also smart, user-friendly, and tailored to meet specific individual and business needs.
+                    </p>
                 </div>
                 <div className="relative w-full md:w-1/2 lg:w-3/5 h-full flex justify-center items-center">
                     <Canvas className="w-full h-full" dpr={[1,2]} shadows camera={{position: [0, 0, 5], fov:45}}>
