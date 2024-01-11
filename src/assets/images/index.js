@@ -7,6 +7,7 @@ import logo from './logo.svg'
 import HPC from './HPC.png'
 import Tampa from './Tampa_Spartan_Logo.jpg'
 import codakid from './codakid.png'
+import drobots from './drobots.png'
 
 export {
     hero,
@@ -17,5 +18,6 @@ export {
     logo,
     HPC,
     Tampa,
-    codakid
+    codakid,
+    drobots
 }

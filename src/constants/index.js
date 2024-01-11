@@ -1,4 +1,4 @@
-import { meta, shopify, starbucks, tesla, HPC, Tampa, codakid } from "../assets/images";
+import { meta, shopify, starbucks, tesla, HPC, Tampa, codakid, drobots } from "../assets/images";
 import {
     car,
     contact,
@@ -162,14 +162,14 @@ export const experiences = [
     {
         title: "STEM Camp Instrutor",
         company_name: "Drobots Robotics",
-        icon: meta,
-        iconBg: "#b7e4c7",
-        date: "Jan 2023 - Present",
+        icon: drobots,
+        iconBg: "#ededed",
+        date: "Jun 2022 - Aug 2022",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Utilized drone technology and code-based learning to foster a collaborative, project-based learning environment in a positive educational setting.",
+            "Mentored children between the ages of six and twelve, inspiring them to become lifelong learners with a strong sense of curiosity, confidence, and teamwork.",
+            "Implemented self-exploratory and project-based learning techniques with real-world STEM applications for children, promoting hands-on experience in a stimulating learning environment.",
+            "Instructed free-flying drone challenges, enhancing knowledge of coding drones in a dynamic, action-packed learning atmosphere.",
         ],
     },
 ];
@@ -184,12 +184,12 @@ export const socialLinks = [
     {
         name: 'GitHub',
         iconUrl: github,
-        link: 'https://github.com/YourGitHubUsername',
+        link: 'https://github.com/masond84',
     },
     {
         name: 'LinkedIn',
         iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/YourLinkedInUsername',
+        link: 'https://www.linkedin.com/in/devin-r-mason/',
     }
 ];
 
@@ -200,34 +200,34 @@ export const projects = [
         theme: 'btn-back-red',
         name: 'Student Resource Center',
         description: 'Developed a web application provides open-source resources for Student Leaders and Administrators looking to become adept in a variety of skills. ',
-        link: 'https://github.com/adrianhajdin/pricewise',
+        link: 'https://github.com/masond84/Resilient_School_Leaders',
     },
     {
         iconUrl: chart,
         theme: 'btn-back-green',
         name: 'Lead Scoring Application',
         description: 'Created a full-stack software to rank  Lead Lists in order to designate quality leads and corresponding scores for each lead.',
-        link: 'https://github.com/adrianhajdin/threads',
+        link: 'https://github.com/masond84/DataSiftPro',
     },
     {
         iconUrl: realestate,
         theme: 'btn-back-blue',
         name: 'Real-Estate Auction Web Scraper',
         description: 'Created an automated web scraper that recurringly gets foreclosure auctions and researches respective data for all Counties in Florida.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
+        link: 'https://github.com/masond84/Florida-Foreclosure-Web-Scraper',
     },
     {
         iconUrl: mental,
         theme: 'btn-back-pink',
         name: 'Therapist ChatBot',
         description: 'Built a ChatGPT clone tailored to providing mental health advice and companionship to a user through text prompts and Natural Language Processing.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
+        link: 'https://github.com/masond84/Therpy-GPT',
     },
     {
         iconUrl: estate,
         theme: 'btn-back-black',
         name: 'Corporate Contact Data Scraper',
         description: 'Developed a web scraper application to scrape Contact data from the Association for Corporate Growth, providing respective data for fintech decision making.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
+        
     },
 ];

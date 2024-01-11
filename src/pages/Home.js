@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import ServiceSection from "../components/ServiceSection";
 import CallToAction from "../components/CallToAction"; 
 import Footer from '../components/Footer';
-
+import Typewriter from 'typewriter-effect';
 
 const World = ({ modelPosition, modelScale }) => {
     const modelRef = useRef();
@@ -109,12 +109,43 @@ const Home = () => {
     return (
         <>
             <section className='w-full h-screen flex flex-col md:flex-row justify-center items-center p-4 bg-[#0a0a0a]'>
-                <div className="text-left w-full md:w-1/2 lg:w-2/5 px-4 md:px-0 space-y-4 pl-4 md:pl-8 lg:pl-12">
-                    <h1 className="text-4xl md:text-4xl font-bold text-white text-center md:text-left">Expanding the Intersection of Technology and Business</h1>
-                    <p className="text-sm md:text-base text-gray-400 text-center md:text-left">
-                    As a full-stack developer and data analyst, I thrive in data-driven environments, employing cutting-edge technologies to craft not just websites and apps, but comprehensive digital solutions.
-                    I enjoy creating digital experiences that aren't just visually appealing, but also smart, user-friendly, and tailored to meet specific individual and business needs.
-                    </p>
+            <div className="text-left w-full md:w-1/2 lg:w-2/5 px-4 md:px-0 space-y-4 pl-4 md:pl-8 lg:pl-12">
+                <h1 className="text-4xl md:text-4xl font-bold text-white text-center md:text-left">
+                        {/* Static part of the text */}
+                        Expanding the Intersection of 
+                        {/* Typewriter effect part */}
+                        <Typewriter
+                            options={{
+                                loop: true,
+                            }}
+                            onInit={(typewriter) => {
+                                typewriter
+                                    .typeString("Technology")
+                                    .pauseFor(2000)
+                                    .deleteChars(10)
+                                    .typeString("Business")
+                                    .pauseFor(10000)
+                                    .deleteChars(8)
+                                    .start();
+                            }}
+                        />
+                    </h1>
+                    <div className="h-40 md:h-40 overflow-y-auto"> {/* Set a fixed height */}
+                        <p className="text-sm md:text-base text-gray-400 text-center md:text-left">
+                            <Typewriter
+                                onInit={(typewriter) => {
+                                    typewriter
+                                        .typeString("As a full-stack developer and data analyst, I thrive in data-driven environments, employing cutting-edge technologies to craft not just websites and apps, but comprehensive digital solutions.<br><br>I enjoy creating digital experiences that aren't just  appealing, but smart, user-friendly, and tailored to specific individual and business needs.")
+                                        .start();
+                                }}
+                                options={{
+                                    delay: 40, // Adjust typing speed (milliseconds)
+                                    cursor: '', // Removes cursor if you don't need it
+                                    wrapperClassName: "text-sm md:text-base text-gray-400 text-center md:text-left", // Apply your styles here
+                                }}
+                            />
+                        </p>
+                    </div>
                 </div>
                 <div className="relative w-full md:w-1/2 lg:w-3/5 h-full flex justify-center items-center">
                     <Canvas className="w-full h-full" dpr={[1,2]} shadows camera={{position: [0, 0, 5], fov:45}}>

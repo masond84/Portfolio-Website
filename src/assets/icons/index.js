@@ -40,6 +40,8 @@ import terminal from './terminal.svg'
 import database from './database.svg'
 import magnet from './magnet.svg'
 import cloud from './cloud.svg'
+import volumeoff from './volumeoff.svg'
+import volumeon from './volumeon.svg'
 
 export {
     css,
@@ -83,5 +85,7 @@ export {
     terminal,
     database,
     magnet,
-    cloud
+    cloud,
+    volumeon,
+    volumeoff
 }

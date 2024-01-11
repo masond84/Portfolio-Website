@@ -9,6 +9,7 @@ import CallToAction from '../components/CallToAction';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { OrbitControls } from '@react-three/drei';
+import Typewriter from 'typewriter-effect';
 
 const SkillItem = ({ skill, percentage }) => {
   const barAnimation = useSpring({ width: percentage });
@@ -83,7 +84,20 @@ const About = () => {
           
           {/* Text Content */}
           <div className='md:w-1/2 lg:w-2/5 space-y-4 md:order-2'>
-            <h1 className="text-4xl md:text-5xl font-bold">Get To Know Me...</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter
+                        .typeString("Get To Know Me... ")
+                        .start();
+                }}
+                options={{
+                    delay: 15, // Adjust typing speed (milliseconds)
+                    cursor: '/>', // Removes cursor if you don't need it
+                    wrapperClassName: "text-4xl md:text-5xl font-bold", // Apply your styles here
+                }}
+            />
+            </h1>
             <p className='mt-4 text-lg text-slate-300'>I am a passionate and innovative Computer Science Major from the University of Tampa. With experience as a Data Analyst Intern at a leading Mergers and Acquisition Investment Firm. And expansive experience in Full-Stack, Software Devlopment, and Machine Learning - I hope to forge a continuous path of success and life long learning.</p>
             <div className='mt-8'>
               <Link to='/projects' className="relative inline-block font-semibold py-2 px-4 border border-white rounded-md overflow-hidden group focus:outline-none">
@@ -147,7 +161,7 @@ const About = () => {
                 <VerticalTimelineElement
                   key={experience.company_name}
                   date={experience.date}
-                  icon={<div className="flex justify-center w-full h-full">
+                  icon={<div className="flex justify-center items-center w-full h-full">
                     <img 
                       src={experience.icon}
                       alt={experience.company_name}
